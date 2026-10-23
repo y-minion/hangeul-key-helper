@@ -1,4 +1,4 @@
-# 한영키 도우미
+# 한영키 도우미 · hangeul-key-helper
 
 **Caps Lock 한영 전환을 macOS 기본 기능으로 설정하는 작은 앱.**
 
