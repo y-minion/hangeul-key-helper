@@ -1,0 +1,19 @@
+name: macOS build and tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test without changing keyboard settings
+        run: swift test
+      - name: Build universal local-test app
+        run: ./scripts/build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HangeulKeyHelper-local-test-unsigned-for-distribution
+          path: |
+            dist/*.zip
+            dist/SHA256SUMS
